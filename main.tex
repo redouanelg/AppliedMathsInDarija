@@ -1,0 +1,218 @@
+\documentclass[16pt]{beamer}
+\usetheme{Warsaw}
+\usepackage{enumitem}
+\usepackage{fontspec}
+\usepackage{color}
+\usepackage{polyglossia}
+\setbeamertemplate{frametitle}[default][right]% align the frametitle to the right
+\setdefaultlanguage{english}
+\setotherlanguage[calendar=gregorian,numerals=maghrib]{arabic}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1]{Amiri}
+\newfontfamily\arabicfontsf[Script=Arabic,Scale=1]{Amiri}
+
+%~~~~~~~~~~~~~~~~define bullet for enumerate~~~~~~~~~~~~~
+
+\newcommand{\myenum}[1]
+{
+ \par\vspace{3pt}\LR{\hspace*{3pt}%
+  \begin{pgfpicture}{-1ex}{-0.65ex}{1ex}{1ex}
+    \usebeamercolor[fg]{item projected}
+    {\pgftransformscale{1.8}\pgftext{\normalsize \pgfuseshading{bigsphere}}}
+    {\pgftransformshift{\pgfpoint{0pt}{0.5pt}}
+      \pgftext{\usebeamerfont*{item projected}\textcolor{white}{#1}}}
+  \end{pgfpicture}%
+  \hspace{1pt}%
+}}
+
+%~~~~~~~~~~~~~~~~~~define bullet for itemize~~~~~~~~~~~~~~~
+
+\newcommand{\myitem}{\par\vspace{3pt}\hspace{5mm}\LR{\hspace*{3pt}%
+  \begin{pgfpicture}{-1ex}{-0.65ex}{1ex}{1ex}
+    \usebeamercolor[fg]{item projected}
+    {\pgftransformscale{1.1}\pgftext{\normalsize\pgfuseshading{bigsphere}}}
+      \end{pgfpicture}%
+  \hspace{1pt}%
+}}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\logo{\includegraphics[width=1.4cm]{ttr.png}}
+\title{\textarabic{تويشيات فالتعلم الآلي}}
+\author{Redouane Lguensat\\
+\texttt{fb.com/AppliedMathsInDarija}}
+
+\date{February 2017}
+\institute{Simple introduction to Machine Learning in Moroccan Arabic}
+%-----------------------------------------------
+\begin{document}
+
+  \begin{frame}
+    \titlepage
+  \end{frame}
+  
+\begin{frame}
+\frametitle{\textarabic{السلام عليكم}}
+\begin{minipage}{0.95\textwidth}
+\begin{Arabic}
+
+\begin{enumerate}[label=\protect\myenum{\arabic*}]
+\item هاد التقديم محاولة متواضعة باش نوصل بعض الافكار على التعلم الآلي بشكل مبسط و بالدارجة المغربية
+
+\item هاد التقديم الاول عايكون بداية ان شاء الله لسلسلة تعريفية بأهمية التعلم الآلي و تطبيقاته 
+
+\item  الناس اللي باغين يقراو التعلم الآلي خاصهم يتعمقو اكثر فالدروس المتوفرة على الانترنت، هادشي اللي كاندير عا ديك الدغمة الاولى لتحبيب هاذ المجال للتلاميذ و الطلبة المغاربة
+
+\end{enumerate}    
+\end{Arabic}
+\end{minipage}
+\end{frame}
+ 
+\begin{frame}
+\frametitle{\textarabic{شناهو التعلم الآلي؟}}
+\begin{minipage}{0.95\textwidth}
+\begin{Arabic}
+ هو مجموعة خوارزميات Algorithms كاتاخذ كمية "كبيرة" من البيانات Data و تستخرج منهم عدة معلومات تا كاتولي "معلمة" فيهم.
+\end{Arabic}
+
+\begin{figure}
+\includegraphics[scale=0.12]{robot2}
+\end{figure}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{\textarabic{عطيني مثال آ عشيري}}
+\begin{minipage}{0.95\textwidth}
+\begin{Arabic}
+من اهم المشاكل اللي كايحلها التعلم الآلي هي التصنيف \text{Classification}
+
+كايكونو عندك بيانات من عدة اصناف و كايخصك شي خوارزمية تفرق ليك الاصناف اوتوماتيكيا:  عندك شي 40 ولا 400 صورة ديال اتاي و القهوة و مامساليش نتا تبقا تشوف صورة بصورة شكون اتاي و شكون القهوة 
+
+\begin{enumerate}[label=\protect\myenum{\arabic*}]
+\item  الحل الاول: جيب حميد و قوليه يبقا يشد صورة و بصورة و يحط ديال اتاي فبلاصة اتاي و ديال القهوة فبلاصة القهوة.
+
+\end{enumerate} 
+
+حل ماشي زوين حيث:
+
+\begin{itemize}
+\item حميد خاصك تخلصو
+\item حميد بنادم و كايجيه الجوع و النعاس و.. و..
+\item 
+\end{itemize}
+
+\end{Arabic}
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textarabic{التصنيف}}
+\begin{minipage}{0.95\textwidth}
+\begin{Arabic}
+\begin{enumerate}[label=\protect\myenum{\arabic*}]
+\item الحل الثاني: عادي تاخذ خوارزمية تعلم آلي، و تعلمها الفرق بين تصاور اتاي و القهوة، عاد تعطيها تصاورك نتا. 
+\end{enumerate} 
+
+\end{Arabic}
+
+\begin{figure}
+\includegraphics[scale=0.6]{robot}
+\end{figure}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{\textarabic{ مراحل استعمال خوارزميات التعلم الآلي }}
+\begin{minipage}{0.95\textwidth}
+\begin{Arabic}
+في اي خوارزمية ديال التعلم الآلي، خاصك اولا بزآآاف ديال البيانات، اللي هي فالحالة ديالنا: بزاف ديال صور اتاي و بزاف ديال صور القهوة، نفتارضوا عندنا شي عشرات الآلاف ديال الصور من كل صنف. من بعد كانتبعوا هاذ المراحل:
+
+\begin{itemize}
+\item[$\bullet$] كانشدو تقريبا شي 80 \% باش تتعلم منها الخوارزمية (فهاد المرحلة را كانعطيوها الصورة و ايضا الصنف ديالها) و داكشي اللي بقا باش الخوارزمية تبقى تجرب فيه واش خدامة مزيان ولا لا. هاد جوج مراحل كايسماو التعلم \textcolor{blue}{Training} و التحقق \textcolor{green}{Validation}
+
+\item[$\bullet$] من بعد عاد نقدرو نقولو را الخوارزمية واجدة و "معلمة"، و دابا عاد كانديرو التطبيق \textcolor{red}{Test} و كانعطيوها 40 ولا 400 صورة ديالنا باش تصنفهم لراسها بلا مساعدة من عندنا
+
+\end{itemize} 
+\end{Arabic}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textarabic{المراحل فمثال القهوة و آتاي}}
+\begin{minipage}{0.95\textwidth}
+ \textcolor{blue}{Training} and \textcolor{green}{Validation}
+\begin{figure}
+\includegraphics[scale=0.5]{m3lm}
+\end{figure}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textarabic{المراحل فمثال القهوة و آتاي}}
+\textcolor{red}{Test}
+\begin{figure}
+\includegraphics[scale=0.6]{atay}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{\textarabic{ التصنيف فالحياة اليومية}}
+\begin{minipage}{0.95\textwidth} 
+\begin{Arabic}
+ من اول التطبيقات فالحياة اليومية ديال التصنيف بخوارزميات التعلم الآلي كانت هيا تصنيف الارقام المكتوبة بخط اليد، كاتستعمل فقراءة الرموز البريدية اللي فالأظرفة و حتى المبالغ المالية اللي فالشيكات.
+ \end{Arabic}
+\begin{figure}
+\includegraphics[scale=0.45]{mnist.jpg}
+\end{figure}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textarabic{ التصنيف فالحياة اليومية}}
+\begin{minipage}{0.95\textwidth} 
+\begin{Arabic}
+دابا را كاين ففايسبوك نيت، ملي كاتدير تحميل صورة تاعك مع صحابك، فايسبوك كايتعرف على وجوه صحابك اوتوماتيكيا (ايلا كانو كايحطو تصاور وجههم ففايسبوك)
+ \end{Arabic}
+\begin{figure}
+\includegraphics[scale=0.7]{tag}
+\end{figure}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textarabic{ التصنيف فالحياة اليومية}}
+\begin{minipage}{0.95\textwidth} 
+\begin{Arabic}
+و دابا را ولا كايدخل لمجالات كالطب و المحاماة و حتى الفيزياء الفلكية... الخ... الخ... 
+
+مثلا فالطب، كاين ابحاث جارية حالية فامكانية استعمال التصنيف بالشبكات العصبونية العميقة (واحد النوع من خوارزميات التعلم الآلي) باش من تصويرة تعرف صنف  سرطان الجلد اوتوماتيكيا.
+ \end{Arabic}
+\begin{figure}
+\includegraphics[scale=0.15]{med}
+\end{figure}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textarabic{يتبع..}}
+\begin{minipage}{0.95\textwidth} 
+\begin{Arabic}
+التعلم الآلي ماكايتستعملش عا فالتصنيف، كايتستعمل فبزاف ديال التطبيقات اللي عانحاول ندوي عليهم فالتقديمات الجاية، شكرا على التتبع !
+
+لكل التعاليق و الاقتراحات راسلوا صفحة "تويشيات فتطبيق الرياضيات" على الفايسبوك
+\end{Arabic}
+\begin{figure}
+\includegraphics[scale=0.2]{atay2}
+\end{figure}
+\end{minipage}
+\end{frame}
+
+
+\end{document} 
